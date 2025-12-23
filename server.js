@@ -1,3 +1,4 @@
+const chatRoutes = require('./routes/chat');
 const express = require("express");
 const http = require("http");
 const mongoose = require("mongoose");
@@ -15,6 +16,7 @@ const io = new Server(server, {
 
 app.use(cors());
 app.use(express.json());
+app.use('/chat', chatRoutes);
 
 /* =========================
    MONGODB CONNECTION
@@ -152,3 +154,4 @@ const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
 });
+
